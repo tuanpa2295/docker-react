@@ -1,0 +1,9 @@
+sudo: required
+services: 
+    - docker
+#set up before install, set a tag for image
+#can use any tag
+before_install:
+    - docker build -t phamanhtuan221995/docker-react -f Dockerfile.dev .
+script:
+    - docker run phamanhtuan221995/docker-react npm run test -- --coverage
